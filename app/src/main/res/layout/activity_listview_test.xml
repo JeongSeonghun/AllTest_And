@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lil_list_add_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        >
+        <Switch
+            android:id="@+id/sw_list_add_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="list mode"
+            android:textOff="recycle mode"
+            android:text="recycle view mode"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_list_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+
+        <Button
+            android:id="@+id/btn_list_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/send"
+            />
+
+        <EditText
+            android:id="@+id/et_list_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/btn_list_add"
+            android:minLines="1"
+            android:maxLines="4"
+            />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_list_add"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/rl_list_add"
+        android:layout_below="@id/lil_list_add_top"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_add"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/rl_list_add"
+        android:layout_below="@id/lil_list_add_top" />
+</RelativeLayout>

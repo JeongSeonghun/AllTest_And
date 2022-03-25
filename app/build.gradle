@@ -1,0 +1,125 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    signingConfigs {
+        /* signing 정보. 빌드 혹은 apk 생성 시 자동으로 적용하기 위해 사용(빌드 혹은 명령어를 통한 apk 생성 시 적용)
+        test용도로 gradle.properties에 값이 들어갔으나 local.properties를 사용해 gitignore로 공유안하도록 정의도 가능
+         */
+        def Properties props = new Properties()
+        def propFile = new File('gradle.properties')
+        if (propFile.canRead())
+            props.load(new FileInputStream(propFile))
+        config {
+            keyAlias props['debug_key_alias']
+            keyPassword props['debug_key_pass']
+            storeFile file(props['debug_keystore'])
+            storePassword props['debug_keystore_pass']
+        }
+    }
+
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.jsh.kr.alltest"
+        minSdkVersion 19
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true" // custom build config value
+            signingConfig signingConfigs.config // 위에서 정의한 signing 정보 설정. build type에 따라 다른 정보 적용해 사용 가능
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "LOG_DEBUG", "false" // custom build config value
+            signingConfig signingConfigs.config
+        }
+        // 추가 빌드 유형. 다른 모듈이 포함된 경우 해당 모듈에도 있어야 함.(appex, alltestlib 모듈 gradle 참고)
+        staging {
+            initWith debug
+            applicationIdSuffix ".debugStaging"
+        }
+    }
+
+    // 제품 버전
+    flavorDimensions "version" // dimensions 필수.
+    productFlavors {
+        demo {
+            dimension "version"
+            applicationIdSuffix ".demo"
+            versionNameSuffix "_demo"
+            buildConfigField "String", "EXPLAIN", "\"This is demo application\""
+            versionCode 999
+            versionName "0.9.99"
+            resValue "string", "testFlavorResVal", "AllTest-demo"
+        }
+        full {
+            buildConfigField "String", "EXPLAIN", "\"This is full application\""
+            resValue "string", "testFlavorResVal", "AllTest-full"
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    dataBinding { // use data binding (android studio 4.0 미만)
+//        enabled = true
+//    }
+    buildFeatures{ // use data binding (android studio 4.0 이상. jdk 11 사용 필요)
+        dataBinding = true // data binding
+//        viewBinding = true // view binding
+    }
+
+    // apk 생성 위치 및 파일 정보 설정 (빌드 혹은 명령어를 통한 apk 생성 시 적용)
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def path = output.outputFile.parent + "/apk"
+            def apkName = "AllTest"
+            def date = new Date().format("yyMMdd")
+            def type
+            if (variant.buildType.name.contains("debug") || variant.buildType.name.contains("staging")) {
+                type = "dev"
+            } else {
+                type = "rel"
+            }
+
+            apkName += "-${variant.versionName}-"
+            apkName += type
+            apkName += "-" + date + ".apk"
+
+            outputFileName = new File(
+                    path,
+                    apkName
+            ).getName()
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation project(':alltestlib') // test custom library
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0' // ViewModel
+
+}

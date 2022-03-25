@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jsh.kr.alltest">
+
+    <!-- phone number 획득을 위한 권한 -->
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <!-- location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<!--    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />-->
+
+    <application
+        android:name=".AllTestApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AllTest_And">
+
+        <!-- app info test -->
+        <meta-data android:name="meta.test" android:value="@string/meta_test_data" />
+
+        <activity android:name=".ui.home.IntroActivity"
+            android:exported="true">
+            <!-- android 12 부터는 android:exported 필수 -->
+            <!-- 앱 실행시 처음 표시되는 화면 설정을 위한 filter 추가-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.home.MainActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <!-- ui test -->
+        <activity
+            android:name=".ui.view.BaseFstActivity"
+            android:theme="@style/Theme.AllTest_And.NoActionBar" />
+        <activity android:name=".ui.view.RecycleViewTestActivity" />
+        <activity android:name=".ui.view.PagerTestActivity" />
+        <activity android:name=".ui.view.SpinnerTestActivity" />
+        <activity android:name=".ui.view.TabTestActivity" />
+        <activity android:name=".ui.view.DatePickerTestActivity" />
+        <activity android:name=".ui.view.ProgressTestActivity" />
+        <activity
+            android:name=".ui.view.FloatActionButtonTestActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".ui.view.NotificationTestActivity" />
+        <activity android:name=".ui.view.ListViewClickActivity" />
+        <activity android:name=".ui.view.AnimationTestActivity" />
+        <activity android:name=".ui.view.CustomViewActivity" />
+        <activity android:name=".ui.view.RotateActivity" />
+        <activity android:name=".ui.view.ListViewTestActivity" />
+        <activity android:name=".ui.view.TextViwHTMLTestActivity" />
+        <activity android:name=".ui.view.TransparentActivity"
+            android:theme="@style/Transparent" />
+        <activity android:name=".ui.view.CustomBehaviorActivity"
+            android:theme="@style/Theme.CustomBehaviorAct" />
+        <activity android:name=".ui.view.LeftMenuActivity" />
+        <activity android:name=".ui.view.ScrollActionBarTestActivity"
+            android:theme="@style/Theme.AllTest_And.NoActionBar"
+            />
+        <activity android:name=".ui.view.CustomPickTestActivity" />
+
+        <!-- data, library, etc test -->
+        <activity android:name=".ui.etc.start.StartTestActivity" />
+        <activity android:name=".ui.etc.start.TestActivity1" />
+        <activity android:name=".ui.etc.start.TestActivity2" />
+        <activity android:name=".ui.etc.start.TestFinishActivity" />
+        <activity android:name=".ui.etc.PreferenceSaveActivity" />
+        <activity android:name=".ui.etc.DBTestActivity" />
+        <activity android:name=".ui.etc.ThreadTestActivity" />
+        <activity android:name=".ui.etc.ServiceTestActivity" />
+        <activity android:name=".ui.etc.PermissionTestActivity" />
+        <activity android:name=".ui.etc.AppInfoDataTestActivity" />
+        <activity android:name=".ui.etc.PhoneStateCheckActivity" />
+        <activity android:name=".ui.etc.fragment.FragmentTestActivity" />
+        <activity android:name=".ui.etc.DataBindingTestActivity" />
+        <activity android:name=".ui.etc.IntentServiceTestActivity" />
+        <activity android:name=".ui.etc.JobSchedulerTestActivity" />
+        <activity android:name=".ui.etc.SensorTestActivity" />
+        <activity android:name=".ui.etc.SoundControlTestActivity" />
+        <activity android:name=".ui.etc.AlarmTestActivity" />
+        <activity android:name=".ui.etc.EventTestActivity" />
+        <activity android:name=".ui.etc.WebScriptTestActivity" />
+        <activity android:name=".ui.etc.ViewModelTestActivity" />
+        <activity android:name=".ui.etc.ResourceTestActivity"
+            android:theme="@style/CustomTheme"
+            />
+        <activity android:name=".ui.etc.VoiceRecordTestActivity" />
+        <activity android:name=".ui.etc.FileListActivity" />
+        <activity android:name=".ui.etc.TimeTestActivity" />
+        <activity android:name=".ui.etc.AIDLTestActivity" />
+        <activity android:name=".ui.etc.ShareTestActivity" />
+        <activity android:name=".ui.etc.OpenGlTestActivity" />
+        <activity android:name=".ui.etc.BuildTypeFlavorTestActivity" />
+
+        <!-- service -->
+        <service
+            android:name=".service.TestJobIntentService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            />
+        <service
+            android:name=".service.TestJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"
+            />
+        <service
+            android:name=".service.TestChargeJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"
+            />
+        <service android:name=".service.ForegroundTestService" />
+        <service android:name=".service.StartTestService" />
+        <service android:name=".service.TestIntentService" />
+        <service
+            android:name=".service.AIDLService"
+            android:exported="true"
+            android:permission="com.kr.alltest.service.AIDL_TEST"
+            >
+            <!-- android:permission="com.kr.alltest.service.AIDL_TEST" -->
+            <!-- android 12 부터 filter 가 있는 경우 exported 명시적으로 선언 필수 -->
+            <!-- permission 사용 시 외부 앱에서 permission 추가 필요 -->
+            <intent-filter>
+                <action android:name="com.kr.alltest.service.aidltest"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.BackgroundLocationTestService" />
+
+        <!-- receiver -->
+        <receiver android:name=".receiver.TestReceiverNoFilter" />
+        <receiver android:name=".receiver.BatteryCheckReceiver" />
+
+    </application>
+
+</manifest>

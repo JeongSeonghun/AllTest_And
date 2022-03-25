@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomView">
+        <attr name="it_src" format="reference" />
+        <attr name="it_selectedSrc" format="reference" />
+        <attr name="it_text" format="string" />
+        <attr name="it_textColor" format="color" />
+        <attr name="it_textSize" format="dimension" />
+        <attr name="it_textSelectedColor" format="color" />
+        <attr name="it_space" format="dimension" />
+        <attr name="it_orientation">
+            <enum name="vertical" value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <attr name="buttonTextColor" format="reference" />
+</resources>

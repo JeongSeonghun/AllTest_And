@@ -1,0 +1,350 @@
+<resources>
+    <string name="app_name">AllTest_And</string>
+
+    <!-- common -->
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
+    <string name="yes">예</string>
+    <string name="no">아니요</string>
+    <string name="search">검색</string>
+    <string name="login">로그인</string>
+    <string name="logout">로그아웃</string>
+    <string name="delete">삭제</string>
+    <string name="add">추가</string>
+    <string name="edit">편집</string>
+    <string name="list">목록</string>
+    <string name="open">열기</string>
+    <string name="close">닫기</string>
+    <string name="on">켜기</string>
+    <string name="off">끄기</string>
+    <string name="test">test</string>
+    <string name="status">status</string>
+    <string name="sound">sound</string>
+    <string name="music">music</string>
+    <string name="system">system</string>
+    <string name="ring">ring</string>
+    <string name="alarm">alarm</string>
+    <string name="all">all</string>
+    <string name="device">device</string>
+    <string name="name">name</string>
+    <string name="address">address</string>
+    <string name="rssi">rssi</string>
+    <string name="detail">detail</string>
+    <string name="length">length</string>
+    <string name="type">type</string>
+    <string name="form">format</string>
+    <string name="uuid">UUID</string>
+    <string name="play">play</string>
+    <string name="stop">stop</string>
+    <string name="pause">pause</string>
+    <string name="start">start</string>
+    <string name="record">record</string>
+    <string name="media_play">media play</string>
+    <string name="prepare">prepare</string>
+    <string name="unknown">unknown</string>
+    <string name="remove">제거</string>
+    <string name="replace">교체</string>
+    <string name="show">show</string>
+    <string name="hide">hide</string>
+    <string name="pop_back">pop back</string>
+    <string name="server">server</string>
+    <string name="client">client</string>
+    <string name="state">state</string>
+    <string name="update">update</string>
+    <string name="key">key</string>
+    <string name="value">value</string>
+    <string name="ready">ready</string>
+    <string name="connect">connect</string>
+    <string name="disconnect">disconnect</string>
+    <string name="version">version</string>
+    <string name="id">id</string>
+    <string name="pwd">password</string>
+    <string name="time">time</string>
+    <string name="date">date</string>
+    <string name="data">data</string>
+    <string name="send">send</string>
+    <string name="lock">lock</string>
+    <string name="menu">menu</string>
+    <string name="contents">contents</string>
+
+    <!-- button -->
+    <string name="btn_show">show</string>
+    <string name="btn_insert">insert</string>
+    <string name="btn_clear">clear</string>
+    <string name="btn_init">init</string>
+    <string name="btn_export">export</string>
+    <string name="btn_start">start</string>
+    <string name="btn_stop">stop</string>
+    <string name="btn_pause">pause</string>
+    <string name="btn_record_start">record start</string>
+    <string name="btn_record_stop">record stop</string>
+    <string name="btn_record_pause">record pause</string>
+    <string name="btn_record_resume">record resume</string>
+    <string name="btn_play_start">play start</string>
+    <string name="btn_play_stop">play stop</string>
+
+    <!-- notification -->
+    <!-- service test -->
+    <string name="notification_fore_test_desc">foreground service test</string>
+    <string name="notification_fore_test_channel_desc">foreground service test</string>
+
+    <!-- main -->
+    <string name="menu_ui">UI</string>
+    <string name="menu_action">ACTION</string>
+    <string name="menu_setting">SETTING</string>
+    <string name="state_no">…</string>
+    <string name="state_resolution">Resolution</string>
+    <string name="state_complete">Complete</string>
+    <string name="state_proceed">Proceed</string>
+    <string name="state_test">test</string>
+    <string name="state_close">close</string>
+    <string name="switch_mode_login">Login Mode</string>
+    <string name="switch_move_before_test">move before test</string>
+    <string name="hint_move_before_test">when run app, move before test activity</string>
+    <!-- button - main -->
+    <string name="bottom_menu_ui">ui</string>
+    <string name="bottom_menu_action">action</string>
+    <string name="bottom_menu_setting">setting</string>
+
+    <!-- ui test move-->
+    <string name="move_fst_base_activity">fst create activity</string>
+    <string name="move_recycle_view_test">RecycleView test</string>
+    <string name="move_viewpager">ViewPager Test</string>
+    <string name="move_progress_test">progress test</string>
+    <string name="move_spinner">spinner Test</string>
+    <string name="move_date_pick">date pick Test</string>
+    <string name="move_tab_test">tab test</string>
+    <string name="move_float_button_test">float button Test</string>
+    <string name="move_notification_test">notification test</string>
+    <string name="move_list_click_test">ListView click Test</string>
+    <string name="move_animation_test">animation test</string>
+    <string name="move_custom_view_test">custom View test</string>
+    <string name="move_rotate">rotate Test</string>
+    <string name="move_listview_test">ListView test</string>
+    <string name="move_textview_html_test">TextView html test</string>
+    <string name="move_transparent_test">Transparent test</string>
+    <string name="move_custom_behavior">Custom behavior Test</string>
+    <string name="move_left_menu">left menu test</string>
+    <string name="move_scroll_toolbar">scroll toolbar Test</string>
+    <string name="move_custom_pick">custom pick Test</string>
+    <!-- act test move -->
+    <string name="move_act_start_test">start activity test</string>
+    <string name="move_preference_save">preference save test</string>
+    <string name="move_db_test">db test</string>
+    <string name="move_service_test">service test</string>
+    <string name="move_permission_test">Permission test</string>
+    <string name="move_app_info_test">app info data test</string>
+    <string name="move_phone_state_test">phone state check test</string>
+    <string name="move_fragment_test">Fragment test</string>
+    <string name="move_binding_test">Binding test</string>
+    <string name="move_alarm_test">Alarm test</string>
+    <string name="move_intent_service_test">intent service test</string>
+    <string name="move_job_scheduler_test">JobScheduler test</string>
+    <string name="move_sensor_test">Sensor test</string>
+    <string name="move_sound_test">Sound control test</string>
+    <string name="move_thread_test">thread test</string>
+    <string name="move_event_test">event test</string>
+    <string name="move_script_test">WebView script test</string>
+    <string name="move_view_model_test">ViewModel test</string>
+    <string name="move_resource_test">resource test</string>
+    <string name="move_voice_record_test">voice record test</string>
+    <string name="move_time_test">Time test</string>
+    <string name="move_aidl_test">AIDL test</string>
+    <string name="move_share_test">Share test</string>
+    <string name="move_opengl_test">OpenGL test</string>
+    <string name="move_build_flavor">build, flavor type change test</string>
+
+    <!-- ui test text-->
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="image">image</string>
+    <string name="page_cnt">page count : </string>
+    <string name="content_msg">content message : </string>
+    <string name="refresh">refresh</string>
+    <string name="mode">mode</string>
+    <string name="horizontal">horizontal</string>
+    <string name="vertical">vertical</string>
+    <string name="linear">linear</string>
+    <string name="grid">grid</string>
+    <string name="staggered_grid">staggered grid</string>
+    <string name="test_cont1">test cont</string>
+    <string name="test_cont2">recycle view test\n test cont</string>
+    <string name="test_cont3">all test\n recycle view\n test cont</string>
+    <!-- tab test -->
+    <string name="tab_test_tab1">tab1</string>
+    <string name="tab_test_tab2">tab2</string>
+    <string name="tab_test_tab3">tab3</string>
+    <!-- notification -->
+    <string name="bridging_mode">Bridging Mode</string>
+    <string name="bridging_phone">Bridging Mode in phone</string>
+    <string name="delay_time">delay time</string>
+    <string name="unit_second">s</string>
+    <string name="important_level">channel important level</string>
+    <!-- animation -->
+    <string name="btn_anim_rotate_lr">rotate left right</string>
+    <string name="btn_anim_change_size">change size</string>
+    <string name="btn_anim_scale_alpha">change size and alpha</string>
+    <string name="btn_anim_change_size_hv">change size horizontal and vertical</string>
+    <string name="btn_anim_scale_alpha_reverse">change size and alpha reverse</string>
+    <string name="btn_anim_rotate_camera">rotate camera</string>
+    <!-- rotate -->
+    <string name="btn_landscape">가로</string>
+    <string name="btn_portrait">세로</string>
+    <string name="btn_sensor">센서</string>
+    <!-- ui test etc text -->
+    <string name="transparent_test_content">transparent test activity</string>
+
+    <!-- act test text -->
+    <!-- start test -->
+    <string name="btn_no_anim">no set animation</string>
+    <string name="btn_anim_left">left in/right our</string>
+    <string name="act_cnt">activity count : </string>
+    <string name="start_eng">start</string>
+    <string name="title_act_test1">test1(activity.test2)</string>
+    <string name="title_act_test2">test2(no affinity)</string>
+    <string name="title_act_start_test">start test activity(activity.test1)</string>
+    <string name="title_act_test_finish">test finishOnTaskLaunch(activity.test2)</string>
+    <!-- app info -->
+    <string name="meta_data">meta data</string>
+    <string name="build_type">build type</string>
+    <string name="build_version">build version</string>
+    <string name="battery">battery</string>
+    <!-- db test -->
+    <string name="text">text</string>
+    <string name="integer">integer</string>
+    <!-- service -->
+    <string name="start_service">start service(background)</string>
+    <string name="start_foreground_service">start foreground service</string>
+    <string name="start_background_location">start background location service</string>
+    <string name="bind_service">bind service</string>
+    <string name="btn_start_foreground_service">start foreground service</string>
+    <!-- fragment -->
+    <string name="change_info">change info</string>
+    <string name="method">method</string>
+    <string name="select_type">select type</string>
+    <string name="select_frag">select frag</string>
+    <string name="back_stack">backStack</string>
+    <string name="set_tag">set tag</string>
+    <string name="fragment_list">fragment list</string>
+    <string name="back_stack_list">back stack list</string>
+    <!-- sensor -->
+    <string name="motion">motion</string>
+    <string name="btn_request_motion_trigger">request motion</string>
+    <!-- thread -->
+    <string name="btn_pause_test">pause test</string>
+    <string name="btn_stop_test">stop test</string>
+    <!-- event -->
+    <string name="btn_touch_event">touch event test</string>
+    <string name="action_form">%1$d action</string>
+    <string name="action_down">down action</string>
+    <string name="action_up">up action</string>
+    <string name="action_none">none action</string>
+    <!-- share -->
+    <string name="share_title">share</string>
+    <string name="email">abc@gmail.com</string>
+    <string name="facebook_link">https://www.facebook.com/profile.php?id=1000xxxxxxxxxxx</string>
+    <string name="share_link_message">공유 메세지입니다.</string>
+    <!-- gradle build type flavor test -->
+    <string name="bf_type_test_build">build type</string>
+    <string name="bf_type_test_flavor">flavor</string>
+    <string name="bf_type_test_b_value1">v1</string>
+
+    <!-- etc -->
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+</resources>

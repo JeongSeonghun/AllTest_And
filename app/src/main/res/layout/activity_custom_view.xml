@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.jsh.kr.alltest.custom.view.CustomView
+        android:id="@+id/img_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="#10000000"
+        app:it_orientation="horizontal"
+        app:it_space="5dp"
+        />
+
+    <com.jsh.kr.alltest.custom.view.CustomView
+        android:id="@+id/img_custom2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="#10000000"
+        app:it_orientation="horizontal"
+        app:it_space="10dp"
+        />
+
+</LinearLayout>
