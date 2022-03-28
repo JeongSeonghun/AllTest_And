@@ -22,3 +22,7 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    lottieVersion = '3.4.0'
+}

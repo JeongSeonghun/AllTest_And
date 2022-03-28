@@ -122,4 +122,6 @@ dependencies {
     implementation project(':alltestlib') // test custom library
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0' // ViewModel
 
+    // lottie effect
+    implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
 }

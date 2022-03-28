@@ -128,6 +128,7 @@
     <string name="move_left_menu">left menu test</string>
     <string name="move_scroll_toolbar">scroll toolbar Test</string>
     <string name="move_custom_pick">custom pick Test</string>
+    <string name="move_effect_test">Effect test</string>
     <!-- act test move -->
     <string name="move_act_start_test">start activity test</string>
     <string name="move_preference_save">preference save test</string>

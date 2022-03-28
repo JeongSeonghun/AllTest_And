@@ -4,6 +4,7 @@ import com.jsh.kr.alltest.C;
 import com.jsh.kr.alltest.R;
 import com.jsh.kr.alltest.model.MainMoveData;
 import com.jsh.kr.alltest.ui.BaseMainMenuFragment;
+import com.jsh.kr.alltest.ui.lib.EffectTestActivity;
 import com.jsh.kr.alltest.ui.view.AnimationTestActivity;
 import com.jsh.kr.alltest.ui.view.BaseFstActivity;
 import com.jsh.kr.alltest.ui.view.CustomBehaviorActivity;
@@ -50,6 +51,9 @@ public class UIFragment extends BaseMainMenuFragment {
         addUIList(ListViewTestActivity.class, R.string.move_listview_test, C.State.Test);
         addUIList(LeftMenuActivity.class,  R.string.move_left_menu, C.State.Test);
         addUIList(ScrollActionBarTestActivity.class, R.string.move_scroll_toolbar, C.State.Test);
+
+        // lib
+        addUIList(EffectTestActivity.class, R.string.move_effect_test, C.State.Test);
 
         // etc
         addIssueList(ListViewClickActivity.class, R.string.move_list_click_test, C.State.Resolution);
