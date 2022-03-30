@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -105,6 +106,12 @@ public class JEAudioRecord {
 
       String fileName = format.format(new Date())+"_record.mp3";
       File file = new File(AllTestDirectory.getRecordFileDir(),fileName);
+
+      try {
+         boolean isSuccess = file.createNewFile();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
 
       return file;
    }

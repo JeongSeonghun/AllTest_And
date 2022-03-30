@@ -1,7 +1,9 @@
 package com.jsh.kr.alltest.ui.etc;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +21,12 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class VoiceRecordTestActivity extends BaseActivity implements View.OnClickListener {
    private final static String TAG = VoiceRecordTestActivity.class.getSimpleName();
@@ -52,6 +59,7 @@ public class VoiceRecordTestActivity extends BaseActivity implements View.OnClic
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_voice_record_test);
       initUI();
+      checkPermission();
    }
 
    private void initUI() {
@@ -80,6 +88,19 @@ public class VoiceRecordTestActivity extends BaseActivity implements View.OnClic
 
       mediaPlay.setMediaPlayListener(mediaPlayListener);
 
+   }
+
+   private void checkPermission() {
+      if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED
+              && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+              && ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+      }
+   }
+
+   @Override
+   public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+      super.onRequestPermissionsResult(requestCode, permissions, grantResults);
    }
 
    @Override

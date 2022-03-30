@@ -25,8 +25,11 @@ import androidx.core.app.ActivityCompat;
 import static android.Manifest.permission.ACCESS_BACKGROUND_LOCATION;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CAMERA;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.READ_PHONE_NUMBERS;
 import static android.Manifest.permission.READ_PHONE_STATE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class PermissionTestActivity extends BaseActivity implements View.OnClickListener {
 
@@ -37,10 +40,12 @@ public class PermissionTestActivity extends BaseActivity implements View.OnClick
    private Button btnPhoneNum;
    private TextView tvPhoneNum;
 
-   private static int REQUEST_PERMISSION_All = 1;
-   private static int REQUEST_PERMISSION_FOREGROUND_LOCATION = 2;
-   private static int REQUEST_PERMISSION_BACKGROUND_LOCATION = 3;
-   private static int REQUEST_PERMISSION_PHONE_NUM = 4;
+   private static final int REQUEST_PERMISSION_All = 1;
+   private static final int REQUEST_PERMISSION_FOREGROUND_LOCATION = 2;
+   private static final int REQUEST_PERMISSION_BACKGROUND_LOCATION = 3;
+   private static final int REQUEST_PERMISSION_PHONE_NUM = 4;
+   private static final int REQUEST_PERMISSION_FILE = 5;
+   private static final int REQUEST_PERMISSION_CAMERA = 6;
 
    @Override
    protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +63,8 @@ public class PermissionTestActivity extends BaseActivity implements View.OnClick
       btnForegroundLocation.setOnClickListener(this);
       btnBackgroundLocation.setOnClickListener(this);
       btnPhoneNum.setOnClickListener(this);
+      findViewById(R.id.btn_file).setOnClickListener(this);
+      findViewById(R.id.btn_camera).setOnClickListener(this);
    }
 
    @Override
@@ -71,11 +78,44 @@ public class PermissionTestActivity extends BaseActivity implements View.OnClick
          checkBackgroundLocation();
       } else if (id == R.id.btn_phone_num) {
          clickPhoneNum();
+      } else if (id == R.id.btn_file) {
+         checkFile();
+      } else if (id == R.id.btn_camera) {
+         checkCamera();
       }
    }
 
    private void allCheck() {
+      if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+              && ActivityCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+              && ActivityCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED) {
+         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+         dialog.setMessage("file, camera 권한 허용 상태");
+         dialog.show();
+      } else {
+         ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, CAMERA}, REQUEST_PERMISSION_All);
+      }
+   }
 
+   private void checkFile() {
+      if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+              && ActivityCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+         dialog.setMessage("권한 허용 상태");
+         dialog.show();
+      } else {
+         ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION_FILE);
+      }
+   }
+
+   private void checkCamera() {
+      if (ActivityCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED) {
+         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+         dialog.setMessage("권한 허용 상태");
+         dialog.show();
+      } else {
+         ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_PERMISSION_CAMERA);
+      }
    }
 
    private void checkForegroundLocation() {

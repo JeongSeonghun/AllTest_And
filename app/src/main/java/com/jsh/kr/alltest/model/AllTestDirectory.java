@@ -28,9 +28,11 @@ public class AllTestDirectory {
 
         }
 
-        String imgPath = Environment.getExternalStorageDirectory() + File.separator + "alltest";
-        imageDir = new File(imgPath, "alltest_img");
-        LogUtil.d(TAG, "path :"+imgPath);
+        // android 10 권한 이슈로 외부 경로 변경
+//        String imgPath = Environment.getExternalStorageDirectory() + File.separator + "alltest";
+//        imageDir = new File(imgPath, "alltest_img");
+//        LogUtil.d(TAG, "path :"+imgPath);
+        imageDir = ctx.getExternalFilesDir("alltest_img"); // android/data/package명/files/alltest_img
         LogUtil.d(TAG, "path exist:"+imageDir.exists());
         if(!imageDir.exists()){
             if(imageDir.mkdirs()) {
@@ -41,7 +43,7 @@ public class AllTestDirectory {
 
         }
 
-        exportDBDir = new File(imgPath, "exportDB");
+        exportDBDir = ctx.getExternalFilesDir("exportDB");
         if(!exportDBDir.exists()){
             if(exportDBDir.mkdirs()) {
                 LogUtil.d(TAG, "create exportDBDir");
@@ -51,7 +53,7 @@ public class AllTestDirectory {
 
         }
 
-        recordFileDir = new File(imgPath, "record");
+        recordFileDir = ctx.getExternalFilesDir("record");
         if(!recordFileDir.exists()){
             if(recordFileDir.mkdirs()) {
                 LogUtil.d(TAG, "create recordFileDir");
