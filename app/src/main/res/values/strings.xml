@@ -155,6 +155,7 @@
     <string name="move_share_test">Share test</string>
     <string name="move_opengl_test">OpenGL test</string>
     <string name="move_build_flavor">build, flavor type change test</string>
+    <string name="move_annotation_test">Annotation Test</string>
 
     <!-- ui test text-->
     <string name="action_settings">Settings</string>

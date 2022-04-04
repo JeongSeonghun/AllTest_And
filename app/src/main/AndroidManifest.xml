@@ -120,6 +120,7 @@
         <activity android:name=".ui.etc.OpenGlTestActivity" />
         <activity android:name=".ui.etc.BuildTypeFlavorTestActivity" />
         <activity android:name=".ui.lib.EffectTestActivity" />
+        <activity android:name=".ui.etc.AnnotationTestActivity" />
 
         <!-- service -->
         <service

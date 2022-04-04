@@ -6,6 +6,7 @@ import com.jsh.kr.alltest.model.MainMoveData;
 import com.jsh.kr.alltest.ui.BaseMainMenuFragment;
 import com.jsh.kr.alltest.ui.etc.AIDLTestActivity;
 import com.jsh.kr.alltest.ui.etc.AlarmTestActivity;
+import com.jsh.kr.alltest.ui.etc.AnnotationTestActivity;
 import com.jsh.kr.alltest.ui.etc.AppInfoDataTestActivity;
 import com.jsh.kr.alltest.ui.etc.BuildTypeFlavorTestActivity;
 import com.jsh.kr.alltest.ui.etc.DBTestActivity;
@@ -62,6 +63,7 @@ public class ActionFragment extends BaseMainMenuFragment {
         addActList(EventTestActivity.class, R.string.move_event_test, C.State.Test);
         addActList(ViewModelTestActivity.class, R.string.move_view_model_test, C.State.Test);
         addActList(ResourceTestActivity.class, R.string.move_resource_test, C.State.Test);
+        addActList(AnnotationTestActivity.class, R.string.move_annotation_test, C.State.Test);
 
         // etc
         addActList(VoiceRecordTestActivity.class, R.string.move_voice_record_test, C.State.Test);
