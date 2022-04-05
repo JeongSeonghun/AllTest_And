@@ -124,4 +124,7 @@ dependencies {
 
     // lottie effect
     implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
+
+    // android wear
+    implementation 'com.google.android.gms:play-services-wearable:17.1.0'
 }

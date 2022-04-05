@@ -2,3 +2,4 @@ include ':alltestlib'
 include ':app'
 rootProject.name = "AllTest_And"
 include ':appex'
+include ':alltestwear'

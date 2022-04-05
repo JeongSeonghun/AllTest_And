@@ -214,12 +214,6 @@ public class C {
         public static final int Menu_Action = 2;
     }
 
-
-    public static class Wear {
-        public static final String PATH_WEAR = "/wear";
-        public static final String PATH_MOBILE = "/mobile";
-    }
-
     public static class BLE {
         public static final String DeviceNamePolar = "Polar H7";
         public static final String DeviceNameUrban = "URBAN-S";

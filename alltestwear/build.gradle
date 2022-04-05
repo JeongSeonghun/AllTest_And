@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    signingConfigs {
+        def Properties props = new Properties()
+        def propFile = new File('gradle.properties')
+        if (propFile.canRead())
+            props.load(new FileInputStream(propFile))
+        config {
+            keyAlias props['debug_key_alias']
+            keyPassword props['debug_key_pass']
+            storeFile file(props['debug_keystore'])
+            storePassword props['debug_keystore_pass']
+        }
+    }
+
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "com.jsh.kr.alltest"
+        minSdkVersion 25
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        // 추가 빌드 유형. 다른 모듈이 포함된 경우 해당 모듈에도 있어야 함.(appex, alltestlib 모듈 gradle 참고)
+        staging {
+            initWith debug
+            applicationIdSuffix ".debugStaging"
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'com.google.android.gms:play-services-wearable:17.1.0'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+}

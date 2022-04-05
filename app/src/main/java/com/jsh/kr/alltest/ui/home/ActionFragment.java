@@ -30,6 +30,7 @@ import com.jsh.kr.alltest.ui.etc.PhoneStateCheckActivity;
 import com.jsh.kr.alltest.ui.etc.PreferenceSaveActivity;
 import com.jsh.kr.alltest.ui.etc.ServiceTestActivity;
 import com.jsh.kr.alltest.ui.etc.start.StartTestActivity;
+import com.jsh.kr.alltest.ui.exdevice.GoogleWearMsgTestActivity;
 
 import java.util.ArrayList;
 
@@ -64,6 +65,9 @@ public class ActionFragment extends BaseMainMenuFragment {
         addActList(ViewModelTestActivity.class, R.string.move_view_model_test, C.State.Test);
         addActList(ResourceTestActivity.class, R.string.move_resource_test, C.State.Test);
         addActList(AnnotationTestActivity.class, R.string.move_annotation_test, C.State.Test);
+
+        // bluetooth, wear, beacon
+        addActList(GoogleWearMsgTestActivity.class, R.string.move_google_wear_msg_test);
 
         // etc
         addActList(VoiceRecordTestActivity.class, R.string.move_voice_record_test, C.State.Test);

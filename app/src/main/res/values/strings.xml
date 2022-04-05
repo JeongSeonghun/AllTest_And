@@ -67,6 +67,7 @@
     <string name="lock">lock</string>
     <string name="menu">menu</string>
     <string name="contents">contents</string>
+    <string name="message">message</string>
 
     <!-- button -->
     <string name="btn_show">show</string>
@@ -83,6 +84,7 @@
     <string name="btn_record_resume">record resume</string>
     <string name="btn_play_start">play start</string>
     <string name="btn_play_stop">play stop</string>
+    <string name="btn_send_msg">send message</string>
 
     <!-- notification -->
     <!-- service test -->
@@ -156,6 +158,7 @@
     <string name="move_opengl_test">OpenGL test</string>
     <string name="move_build_flavor">build, flavor type change test</string>
     <string name="move_annotation_test">Annotation Test</string>
+    <string name="move_google_wear_msg_test">google wear message test</string>
 
     <!-- ui test text-->
     <string name="action_settings">Settings</string>

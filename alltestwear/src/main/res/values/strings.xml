@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AllTestWear</string>
+
+    <!-- temp string -->
+    <string name="intro">intro</string>
+    <string name="main">main</string>
+    <string name="error">error</string>
+
+    <!-- main -->
+    <string name="move_send_message">message send</string>
+
+    <!-- text -->
+    <string name="send">send</string>
+</resources>
