@@ -1,0 +1,107 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    signingConfigs {
+        def Properties props = new Properties()
+        def propFile = new File('gradle.properties')
+        if (propFile.canRead())
+            props.load(new FileInputStream(propFile))
+
+        config {
+            keyAlias props['debug_key_alias']
+            keyPassword props['debug_key_pass']
+            storeFile file(props['debug_keystore'])
+            storePassword props['debug_keystore_pass']
+        }
+    }
+
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "com.jsh.kr.alltestkt"
+        minSdkVersion 19
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        dev {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "SIGN_FLAG", "false"
+            buildConfigField "boolean", "ISPRODUCTION", "false"
+            debuggable true
+            signingConfig signingConfigs.config
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "SIGN_FLAG", "false"
+            buildConfigField "boolean", "ISPRODUCTION", "false"
+            debuggable true
+            signingConfig signingConfigs.config
+        }
+        rel_debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "SIGN_FLAG", "false"
+            buildConfigField "boolean", "ISPRODUCTION", "true"
+            debuggable true
+            signingConfig signingConfigs.config
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "SIGN_FLAG", "true"
+            buildConfigField "boolean", "ISPRODUCTION", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def path = output.outputFile.parent + "/apk"
+            def apkName = "AllTest_Kt"
+            def date = new Date().format("yyMMdd")
+            def type
+            if (variant.buildType.name.contains("debug") || variant.buildType.name.contains("dev")) {
+                type = "dev"
+            } else {
+                type = "rel"
+            }
+
+            apkName += "-${variant.versionName}-"
+            apkName += type
+            apkName += "-" + date + ".apk"
+
+            outputFileName = new File(
+                    path,
+                    apkName
+            ).getName()
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation project(':alltestlib') // test custom library
+    implementation 'com.google.code.gson:gson:2.8.2' // gson
+}

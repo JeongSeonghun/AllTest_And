@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">AllTestKt</string>
+
+    <string name="error_default">err</string>
+    <!-- common -->
+    <string name="id">id</string>
+    <string name="pwd">pwd</string>
+    <string name="login">login</string>
+    <string name="data">data</string>
+    <string name="refresh">refresh</string>
+
+    <!-- main -->
+    <string name="menu_ui">UI</string>
+    <string name="menu_action">ACTION</string>
+    <string name="menu_setting">SETTING</string>
+    <string name="state_no">…</string>
+    <string name="state_resolution">Resolution</string>
+    <string name="state_complete">Complete</string>
+    <string name="state_proceed">Proceed</string>
+    <string name="state_test">test</string>
+    <string name="state_close">close</string>
+    <string name="switch_mode_login">Login Mode</string>
+    <string name="switch_move_before_test">move before test</string>
+    <string name="hint_move_before_test">when run app, move before test activity</string>
+
+    <!-- button - main -->
+    <string name="bottom_menu_ui">ui</string>
+    <string name="bottom_menu_action">action</string>
+    <string name="bottom_menu_setting">setting</string>
+    <!-- move button name(action) -->
+    <!-- move button name(ui) -->
+    <string name="move_kotlin_base_test">kotlin base test</string>
+    <string name="move_kotlin_java_test">kotlin java test</string>
+
+    <!-- kotlin -->
+    <string name="kotlin_test_data">test data</string>
+    <string name="kotlin_test_data_var">var</string>
+    <string name="kotlin_test_data_val">val</string>
+    <string name="kotlin_test_data_max">max data</string>
+
+</resources>
