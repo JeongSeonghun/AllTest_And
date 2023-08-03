@@ -11,6 +11,7 @@ import com.jsh.kr.alltest.ui.view.CustomBehaviorActivity;
 import com.jsh.kr.alltest.ui.view.CustomPickTestActivity;
 import com.jsh.kr.alltest.ui.view.CustomViewActivity;
 import com.jsh.kr.alltest.ui.view.DatePickerTestActivity;
+import com.jsh.kr.alltest.ui.view.DragAndDropListActivity;
 import com.jsh.kr.alltest.ui.view.FloatActionButtonTestActivity;
 import com.jsh.kr.alltest.ui.view.LeftMenuActivity;
 import com.jsh.kr.alltest.ui.view.ListViewClickActivity;
@@ -62,6 +63,7 @@ public class UIFragment extends BaseMainMenuFragment {
         addUIList(TransparentActivity.class, R.string.move_transparent_test, C.State.Test);
         addUIList(CustomBehaviorActivity.class, R.string.move_custom_behavior, C.State.Test);
         addIssueList(CustomPickTestActivity.class, R.string.move_custom_pick, C.State.Proceed);
+        addIssueList(DragAndDropListActivity.class, R.string.move_custom_pick, C.State.Proceed);
 
         return moveDataArrayList;
     }

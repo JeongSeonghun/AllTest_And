@@ -86,6 +86,7 @@
             android:theme="@style/Theme.AllTest_And.NoActionBar"
             />
         <activity android:name=".ui.view.CustomPickTestActivity" />
+        <activity android:name=".ui.view.DragAndDropListActivity" />
 
         <!-- data, library, etc test -->
         <activity android:name=".ui.etc.start.StartTestActivity" />
