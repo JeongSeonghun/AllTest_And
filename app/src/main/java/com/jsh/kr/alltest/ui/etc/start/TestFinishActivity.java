@@ -47,9 +47,9 @@ public class TestFinishActivity extends BaseActivity implements View.OnClickList
 
    private void init() {
 
-      sp_act.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, makeActStringList()));
-      sp_flag.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, flagList));
-      sp_flag2.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, flagList2));
+      sp_act.setAdapter(new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, makeActStringList()));
+      sp_flag.setAdapter(new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flagList));
+      sp_flag2.setAdapter(new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flagList2));
 
    }
 

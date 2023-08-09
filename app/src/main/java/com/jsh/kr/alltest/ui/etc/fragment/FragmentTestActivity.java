@@ -98,7 +98,7 @@ public class FragmentTestActivity extends BaseActivity {
       RecyclerView list = findViewById(R.id.fragment_list_rv);
       RecyclerView stackList = findViewById(R.id.stack_list_rv);
 
-      ArrayAdapter<String> methodAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, opMethod);
+      ArrayAdapter<String> methodAdapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, opMethod);
       method_sp.setAdapter(methodAdapter);
       method_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
          @Override
@@ -139,7 +139,7 @@ public class FragmentTestActivity extends BaseActivity {
          }
       });
 
-      ArrayAdapter<String> selTypeAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, opSelType);
+      ArrayAdapter<String> selTypeAdapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, opSelType);
       sel_type_sp.setAdapter(selTypeAdapter);
       sel_type_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
          @Override
@@ -166,7 +166,7 @@ public class FragmentTestActivity extends BaseActivity {
          }
       });
 
-      ArrayAdapter<String> selStackAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, opStack);
+      ArrayAdapter<String> selStackAdapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, opStack);
       back_stack_sp.setAdapter(selStackAdapter);
 
       set_tag_cb.setOnCheckedChangeListener((compoundButton, b) -> {
@@ -225,7 +225,7 @@ public class FragmentTestActivity extends BaseActivity {
 
       switch (selectType) {
          case 0:
-            fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, R.layout.support_simple_spinner_dropdown_item, opFrag);
+            fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, opFrag);
             break;
          case 1:
             List<String> tags = new ArrayList<>();
@@ -234,7 +234,7 @@ public class FragmentTestActivity extends BaseActivity {
                   tags.add(fragment.getTag());
                }
             }
-            fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, R.layout.support_simple_spinner_dropdown_item, tags.toArray(new String[fragments.size()]));
+            fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, tags.toArray(new String[fragments.size()]));
             break;
          case 2:
             if (method_sp.getSelectedItemPosition() == 3) {
@@ -247,16 +247,16 @@ public class FragmentTestActivity extends BaseActivity {
                   }
                }
 
-               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, R.layout.support_simple_spinner_dropdown_item, stackIds.toArray(new String[0]));
+               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, stackIds.toArray(new String[0]));
             } else {
-               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, R.layout.support_simple_spinner_dropdown_item, new String[]{String.valueOf(R.id.container_fl)});
+               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, new String[]{String.valueOf(R.id.container_fl)});
             }
             break;
          case 3:
             if (currentFragment != null) {
-               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, R.layout.support_simple_spinner_dropdown_item, new String[]{currentFragment.getClass().getSimpleName()});
+               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, new String[]{currentFragment.getClass().getSimpleName()});
             } else {
-               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, R.layout.support_simple_spinner_dropdown_item, new String[]{});
+               fragsAdapter = new ArrayAdapter<>(FragmentTestActivity.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, new String[]{});
             }
             break;
          default:break;

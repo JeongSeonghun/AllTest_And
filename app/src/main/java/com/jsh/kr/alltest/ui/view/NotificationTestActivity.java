@@ -99,7 +99,7 @@ public class NotificationTestActivity extends BaseActivity
                     , String.valueOf(2)
             };
         }
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, importants);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, importants);
         sp_notification_important.setAdapter(arrayAdapter);
     }
 

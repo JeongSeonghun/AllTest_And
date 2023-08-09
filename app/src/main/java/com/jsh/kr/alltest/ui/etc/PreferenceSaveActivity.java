@@ -74,7 +74,7 @@ public class PreferenceSaveActivity extends BaseActivity implements View.OnClick
     }
 
     private void initTypeSpinnerData() {
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, types);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, types);
 
         sp_prefer_save_type.setAdapter(arrayAdapter);
 
