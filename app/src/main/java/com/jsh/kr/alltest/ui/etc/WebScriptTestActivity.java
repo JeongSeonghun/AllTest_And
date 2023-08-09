@@ -10,6 +10,7 @@ import com.jsh.kr.alltest.R;
 import com.jsh.kr.alltest.model.JavaScriptManager;
 import com.jsh.kr.alltest.ui.BaseActivity;
 import com.jsh.kr.alltest.util.LogUtil;
+import com.jsh.kr.alltest.util.TestTextUtil;
 
 import androidx.annotation.Nullable;
 
@@ -19,7 +20,7 @@ import androidx.annotation.Nullable;
  */
 public class WebScriptTestActivity extends BaseActivity implements JavaScriptManager.OnJavaScriptManagerListener{
 
-   private WebView wv_script_test;
+   private WebView wvScriptTest;
 
    @Override
    protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class WebScriptTestActivity extends BaseActivity implements JavaScriptMan
    }
 
    private void initUI() {
-      wv_script_test = findViewById(R.id.wv_script_test);
+      wvScriptTest = findViewById(R.id.wv_script_test);
 
       initWebView();
    }
@@ -38,15 +39,15 @@ public class WebScriptTestActivity extends BaseActivity implements JavaScriptMan
    private void initWebView() {
       // security issue --> https://developer.android.com/training/articles/security-tips
       // --> when use java script in app, use setJavascriptEnabled
-      wv_script_test.getSettings().setJavaScriptEnabled(true);
+      wvScriptTest.getSettings().setJavaScriptEnabled(true);
 
       JavaScriptManager javaScriptManager = new JavaScriptManager();
       javaScriptManager.setJavaScriptManagerListener(this);
-      wv_script_test.addJavascriptInterface(javaScriptManager, JavaScriptManager.TAG);
+      wvScriptTest.addJavascriptInterface(javaScriptManager, JavaScriptManager.TAG);
 
-      wv_script_test.setWebViewClient(new WebViewClient());
+      wvScriptTest.setWebViewClient(new WebViewClient());
 
-      wv_script_test.loadUrl(makeStartUrl());
+      wvScriptTest.loadUrl(makeStartUrl());
    }
 
    private String makeStartUrl() {
@@ -56,6 +57,18 @@ public class WebScriptTestActivity extends BaseActivity implements JavaScriptMan
    @Override
    public void onResult(String result) {
       LogUtil.d("script_test", "onResult :"+result);
+
+      runOnUiThread(() -> {
+//         wvScriptTest.evaluateJavascript("javascript:inputValue()", null);
+         wvScriptTest.evaluateJavascript("javascript:inputValue()", (value) -> {
+            LogUtil.d("script_test", "inputValue :"+value);
+         });
+      });
+   }
+
+   @Override
+   public void getRandomValue() {
+         runOnUiThread(() -> wvScriptTest.loadUrl(String.format("javascript:setRandomValue('%s')", TestTextUtil.makeRandomNumEng(5))));
 
    }
 

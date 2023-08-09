@@ -16,7 +16,14 @@ public class JavaScriptManager {
       listener.onResult(result);
    }
 
+   @JavascriptInterface
+   public void getRandomValue() {
+      listener.getRandomValue();
+   }
+
    public interface OnJavaScriptManagerListener {
       void onResult(String result);
+
+      void getRandomValue();
    }
 }
