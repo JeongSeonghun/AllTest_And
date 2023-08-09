@@ -56,3 +56,6 @@ app/release/
 
 # cmake
 .cxx
+
+# personal
+/*/src/debug/res/values/config.xml

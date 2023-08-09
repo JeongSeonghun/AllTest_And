@@ -132,6 +132,7 @@
     <string name="move_custom_pick">custom pick Test</string>
     <string name="move_effect_test">Effect test</string>
     <string name="move_drag_test">drag and drop list test</string>
+    <string name="move_naver_map_test">naver map test</string>
     <!-- act test move -->
     <string name="move_act_start_test">start activity test</string>
     <string name="move_preference_save">preference save test</string>

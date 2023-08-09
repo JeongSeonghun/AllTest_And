@@ -31,6 +31,7 @@
     <!-- move button name(ui) -->
     <string name="move_kotlin_base_test">kotlin base test</string>
     <string name="move_kotlin_java_test">kotlin java test</string>
+    <string name="move_naver_map_test">naver map test</string>
 
     <!-- kotlin -->
     <string name="kotlin_test_data">test data</string>

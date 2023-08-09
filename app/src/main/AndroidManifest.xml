@@ -38,6 +38,10 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.AllTest_And">
 
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="@string/naver_client_id" />
+
         <!-- app info test -->
         <meta-data android:name="meta.test" android:value="@string/meta_test_data" />
 
@@ -123,6 +127,7 @@
         <activity android:name=".ui.lib.EffectTestActivity" />
         <activity android:name=".ui.etc.AnnotationTestActivity" />
         <activity android:name=".ui.exdevice.GoogleWearMsgTestActivity" />
+        <activity android:name=".ui.lib.NaverMapActivity" />
 
         <!-- service -->
         <service

@@ -4,6 +4,7 @@ import com.jsh.kr.alltestkt.R
 import com.jsh.kr.alltestkt.constant.C
 import com.jsh.kr.alltestkt.model.base.MainMoveData
 import com.jsh.kr.alltestkt.ui.BaseMainMenuFragment
+import com.jsh.kr.alltestkt.ui.lib.NaverMapActivity
 import java.util.ArrayList
 
 class UIFragment : BaseMainMenuFragment() {
@@ -13,6 +14,8 @@ class UIFragment : BaseMainMenuFragment() {
 
 //        addUIList(PagerTestActivity::class.java, R.string.move_viewpager, C.State.Test)
 //        addIssueList(ListViewClickActivity::class.java, R.string.move_list_click_test, C.State.Resolution)
+
+        addUIList(NaverMapActivity::class.java, R.string.move_naver_map_test, C.State.Test)
 
         return moveDataArrayList
     }

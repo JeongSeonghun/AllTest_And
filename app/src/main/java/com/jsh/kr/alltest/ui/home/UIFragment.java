@@ -5,6 +5,7 @@ import com.jsh.kr.alltest.R;
 import com.jsh.kr.alltest.model.MainMoveData;
 import com.jsh.kr.alltest.ui.BaseMainMenuFragment;
 import com.jsh.kr.alltest.ui.lib.EffectTestActivity;
+import com.jsh.kr.alltest.ui.lib.NaverMapActivity;
 import com.jsh.kr.alltest.ui.view.AnimationTestActivity;
 import com.jsh.kr.alltest.ui.view.BaseFstActivity;
 import com.jsh.kr.alltest.ui.view.CustomBehaviorActivity;
@@ -55,6 +56,7 @@ public class UIFragment extends BaseMainMenuFragment {
 
         // lib
         addUIList(EffectTestActivity.class, R.string.move_effect_test, C.State.Test);
+        addUIList(NaverMapActivity.class, R.string.move_naver_map_test, C.State.Test);
 
         // etc
         addIssueList(ListViewClickActivity.class, R.string.move_list_click_test, C.State.Resolution);
