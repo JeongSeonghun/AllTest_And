@@ -42,6 +42,7 @@ android {
             applicationIdSuffix ".debugStaging"
         }
     }
+    namespace 'com.jsh.kr.alltestwear'
 }
 
 dependencies {

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jsh.kr.alltestex">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- custom permission -->
     <!-- AIDL test 용 서비스에 권한이 정의되어 있어 추가 필요 -->

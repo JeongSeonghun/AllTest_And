@@ -83,6 +83,7 @@ android {
         dataBinding = true // data binding
 //        viewBinding = true // view binding
     }
+    namespace 'com.jsh.kr.alltest'
 
     // apk 생성 위치 및 파일 정보 설정 (빌드 혹은 명령어를 통한 apk 생성 시 적용)
     applicationVariants.all { variant ->
