@@ -67,6 +67,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{ // use data binding (android studio 4.0 이상. jdk 11 사용 필요)
+        dataBinding = true // data binding
+        viewBinding = true // view binding
+    }
     namespace 'com.jsh.kr.alltestkt'
 
     applicationVariants.all { variant ->
@@ -102,6 +106,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.multidex:multidex:2.0.1' // multi dex 빌드 오류 (androidx 사용시)
 
     implementation project(':alltestlib') // test custom library
     implementation 'com.google.code.gson:gson:2.8.2' // gson

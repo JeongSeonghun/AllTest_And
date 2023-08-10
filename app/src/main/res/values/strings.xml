@@ -139,6 +139,7 @@
     <string name="move_db_test">db test</string>
     <string name="move_service_test">service test</string>
     <string name="move_permission_test">Permission test</string>
+    <string name="move_permission_contracts_test">Permission contracts test</string>
     <string name="move_app_info_test">app info data test</string>
     <string name="move_phone_state_test">phone state check test</string>
     <string name="move_fragment_test">Fragment test</string>

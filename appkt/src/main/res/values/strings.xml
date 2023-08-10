@@ -28,6 +28,8 @@
     <string name="bottom_menu_action">action</string>
     <string name="bottom_menu_setting">setting</string>
     <!-- move button name(action) -->
+    <string name="move_permission_test">Permission test</string>
+    <string name="move_permission_contracts_test">Permission contracts test</string>
     <!-- move button name(ui) -->
     <string name="move_kotlin_base_test">kotlin base test</string>
     <string name="move_kotlin_java_test">kotlin java test</string>

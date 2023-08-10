@@ -6,7 +6,8 @@ import com.jsh.kr.alltestkt.model.base.MainMoveData
 import com.jsh.kr.alltestkt.ui.BaseMainMenuFragment
 import com.jsh.kr.alltestkt.ui.base.KotlinBaseTestActivity
 import com.jsh.kr.alltestkt.ui.base.KotlinJavaTestActivity
-import java.util.ArrayList
+import com.jsh.kr.alltestkt.ui.etc.PermissionContractsTestActivity
+import com.jsh.kr.alltestkt.ui.etc.PermissionTestActivity
 
 class ActionFragment : BaseMainMenuFragment() {
 
@@ -16,6 +17,9 @@ class ActionFragment : BaseMainMenuFragment() {
 
         addActList(KotlinBaseTestActivity::class.java, R.string.move_kotlin_base_test, C.State.Test)
         addActList(KotlinJavaTestActivity::class.java, R.string.move_kotlin_java_test, C.State.Test)
+
+        addActList(PermissionTestActivity::class.java, R.string.move_permission_test, C.State.Test)
+        addActList(PermissionContractsTestActivity::class.java, R.string.move_permission_contracts_test, C.State.Test)
 
         return moveDataArrayList
     }

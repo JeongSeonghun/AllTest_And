@@ -81,7 +81,7 @@ android {
 //    }
     buildFeatures{ // use data binding (android studio 4.0 이상. jdk 11 사용 필요)
         dataBinding = true // data binding
-//        viewBinding = true // view binding
+        viewBinding = true // view binding
     }
     namespace 'com.jsh.kr.alltest'
 

@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- phone number 획득을 위한 권한 -->
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:maxSdkVersion="29" />
+
+    <!-- location ACCESS_FINE_LOCATION 호출시 정확도 높은 위치 얻음. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />-->
+
+    <!-- file 33 부터 READ 권한 분리-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
+        android:minSdkVersion="33" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"
+        android:minSdkVersion="33" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"
+        android:minSdkVersion="33" />
+    <!-- 30(r,11) 부터 무시. 권한없이 scope mode로 MediaStore 사용하여 저장. 다른앱 파일 접근 시 추가 권한 필요(ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+
+    <!-- camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,6 +49,9 @@
         </activity>
 
         <activity android:name=".ui.lib.NaverMapActivity" />
+
+        <activity android:name=".ui.etc.PermissionTestActivity" />
+        <activity android:name=".ui.etc.PermissionContractsTestActivity" />
     </application>
 
 </manifest>

@@ -27,6 +27,9 @@ import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.READ_MEDIA_AUDIO;
+import static android.Manifest.permission.READ_MEDIA_IMAGES;
+import static android.Manifest.permission.READ_MEDIA_VIDEO;
 import static android.Manifest.permission.READ_PHONE_NUMBERS;
 import static android.Manifest.permission.READ_PHONE_STATE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -46,6 +49,7 @@ public class PermissionTestActivity extends BaseActivity implements View.OnClick
    private static final int REQUEST_PERMISSION_PHONE_NUM = 4;
    private static final int REQUEST_PERMISSION_FILE = 5;
    private static final int REQUEST_PERMISSION_CAMERA = 6;
+   private static final int REQUEST_PERMISSION_BACKGROUND_LOCATION_ADD = 7;
 
    @Override
    protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,25 +90,72 @@ public class PermissionTestActivity extends BaseActivity implements View.OnClick
    }
 
    private void allCheck() {
-      if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-              && ActivityCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-              && ActivityCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED) {
-         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-         dialog.setMessage("file, camera 권한 허용 상태");
-         dialog.show();
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(this, READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, READ_MEDIA_VIDEO) == PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, READ_MEDIA_AUDIO) == PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED) {
+               AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+               dialog.setMessage("file, camera 권한 허용 상태");
+               dialog.show();
+            } else {
+               ActivityCompat.requestPermissions(this, new String[]{READ_MEDIA_IMAGES, READ_MEDIA_AUDIO, READ_MEDIA_VIDEO, CAMERA}, REQUEST_PERMISSION_All);
+            }
+         } else {
+            if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED) {
+               AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+               dialog.setMessage("file, camera 권한 허용 상태");
+               dialog.show();
+            } else {
+               ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, CAMERA}, REQUEST_PERMISSION_All);
+            }
+         }
       } else {
-         ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, CAMERA}, REQUEST_PERMISSION_All);
+         if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                 && ActivityCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                 && ActivityCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setMessage("file, camera 권한 허용 상태");
+            dialog.show();
+         } else {
+            ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, CAMERA}, REQUEST_PERMISSION_All);
+         }
       }
+
    }
 
    private void checkFile() {
-      if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-              && ActivityCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-         dialog.setMessage("권한 허용 상태");
-         dialog.show();
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(this, READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, READ_MEDIA_VIDEO) == PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, READ_MEDIA_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+               AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+               dialog.setMessage("권한 허용 상태");
+               dialog.show();
+            } else {
+               ActivityCompat.requestPermissions(this, new String[]{READ_MEDIA_IMAGES, READ_MEDIA_AUDIO, READ_MEDIA_VIDEO}, REQUEST_PERMISSION_FILE);
+            }
+         } else {
+            if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+               AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+               dialog.setMessage("권한 허용 상태");
+               dialog.show();
+            } else {
+               ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION_FILE);
+            }
+         }
       } else {
-         ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION_FILE);
+         if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                 && ActivityCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setMessage("권한 허용 상태");
+            dialog.show();
+         } else {
+            ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, CAMERA}, REQUEST_PERMISSION_FILE);
+         }
       }
    }
 
@@ -122,22 +173,18 @@ public class PermissionTestActivity extends BaseActivity implements View.OnClick
       if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
               || ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
          ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, REQUEST_PERMISSION_FOREGROUND_LOCATION);
-         // target 30으로 할 경우 권한 팝업 미제공(권한 설정 불가), 29까지는 3개 권한 같이 사용 가능
-//            ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, ACCESS_BACKGROUND_LOCATION}, REQUEST_PERMISSION_FOREGROUND_LOCATION);
       } else {
-         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && ActivityCompat.checkSelfPermission(this, ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+         if (ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_COARSE_LOCATION)
+                 || ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_COARSE_LOCATION)) {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setMessage("위치 허용이 필요합니다.");
+            dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+               @Override
+               public void onClick(DialogInterface dialog, int which) {
 
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_BACKGROUND_LOCATION)) {
-               AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-               dialog.setMessage("항상서용이 필요합니다.");
-               dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                  @Override
-                  public void onClick(DialogInterface dialog, int which) {
-                     ActivityCompat.requestPermissions(PermissionTestActivity.this, new String[]{ACCESS_BACKGROUND_LOCATION}, REQUEST_PERMISSION_FOREGROUND_LOCATION);
-                  }
-               });
-               dialog.show();
-            }
+               }
+            });
+            dialog.show();
          }
 
       }
@@ -215,11 +262,15 @@ public class PermissionTestActivity extends BaseActivity implements View.OnClick
    @Override
    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
       super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-      if (requestCode == REQUEST_PERMISSION_BACKGROUND_LOCATION && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+      if (requestCode == REQUEST_PERMISSION_BACKGROUND_LOCATION) {
          Log.d("testPermission", "check back permissions : " + Arrays.toString(permissions));
-         if (ActivityCompat.checkSelfPermission(this, ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{ACCESS_BACKGROUND_LOCATION}, REQUEST_PERMISSION_BACKGROUND_LOCATION);
+
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (ActivityCompat.checkSelfPermission(this, ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+               ActivityCompat.requestPermissions(this, new String[]{ACCESS_BACKGROUND_LOCATION}, REQUEST_PERMISSION_BACKGROUND_LOCATION_ADD);
+            }
          }
+
       } else if (requestCode == REQUEST_PERMISSION_FOREGROUND_LOCATION) {
          Log.d("testPermission", "check fore permissions : " + Arrays.toString(permissions));
       } else if (requestCode == REQUEST_PERMISSION_PHONE_NUM) {

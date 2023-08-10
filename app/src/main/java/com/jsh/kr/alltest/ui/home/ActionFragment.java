@@ -14,6 +14,7 @@ import com.jsh.kr.alltest.ui.etc.DataBindingTestActivity;
 import com.jsh.kr.alltest.ui.etc.EventTestActivity;
 import com.jsh.kr.alltest.ui.etc.JobSchedulerTestActivity;
 import com.jsh.kr.alltest.ui.etc.OpenGlTestActivity;
+import com.jsh.kr.alltest.ui.etc.PermissionContractsTestActivity;
 import com.jsh.kr.alltest.ui.etc.ResourceTestActivity;
 import com.jsh.kr.alltest.ui.etc.SensorTestActivity;
 import com.jsh.kr.alltest.ui.etc.ShareTestActivity;
@@ -54,6 +55,7 @@ public class ActionFragment extends BaseMainMenuFragment {
         addActList(ServiceTestActivity.class, R.string.move_service_test, C.State.Test);
         addActList(IntentServiceTestActivity.class, R.string.move_intent_service_test, C.State.Test);
         addActList(PermissionTestActivity.class, R.string.move_permission_test, C.State.Test);
+        addActList(PermissionContractsTestActivity.class, R.string.move_permission_contracts_test, C.State.Test);
         addActList(WebScriptTestActivity.class, R.string.move_script_test, C.State.Test);
         addActList(JobSchedulerTestActivity.class, R.string.move_job_scheduler_test, C.State.Test);
         addActList(AlarmTestActivity.class, R.string.move_alarm_test, C.State.Test);
